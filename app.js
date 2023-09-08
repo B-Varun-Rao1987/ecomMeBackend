@@ -21,7 +21,7 @@ app.use(fileUpload());
 app.use(async (req, res, next) => {
     // Set the allowed origin to your frontend's URL
 
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
     
     // Allow other required headers
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -36,8 +36,7 @@ app.use(async (req, res, next) => {
   });
 
   const corsOptions = {
-    // origin: 'https://varun-rao-888-portolio.onrender.com',
-    origin: 'http://localhost:3000',
+    origin: process.env.FRONTEND_URL,
     optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
   };
   
